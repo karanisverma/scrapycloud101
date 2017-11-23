@@ -143,9 +143,9 @@ class FarnellSpider(scrapy.Spider):
         primary_image_url = tree.xpath(u'//img[@id="productMainImage"]/@src') 
         information = self.get_product_information(tree)
         image_urls = tree.xpath('//div[contains(@class,"thumb")]/img/@src')
-
-        if manufacturer:
-            item['manufacturer'] = manufacturer[0]
+        item['manufacturer'] = manufacturer[0]
+        # if manufacturer:
+        #     item['manufacturer'] = manufacturer[0]
         if manufeture_part:
             item['manufacturer_part'] = self.clean_field(manufeture_part[0], join_by='')
         if brand:
